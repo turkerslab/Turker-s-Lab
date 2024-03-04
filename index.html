@@ -35,6 +35,19 @@
         p {
             color: #555;
         }
+        figure{
+            display: inline-block;
+        }
+        .subFigure{
+            max-width: 30%;
+            display: inline-block;
+            padding-right: 5px;
+        }
+        .figure__image{
+            background: lightgray;
+            width: 100%;
+            
+        }
     </style>
 </head>
 
@@ -50,7 +63,41 @@
 
         <p>Prof. Turker has recently become interested in testing cyber-physical and autonomous systems equipped with self-learning control algorithms. He invented the Q-Graph Learning framework.</p>
     </section>
-
+    <section>
+        <h2>Accelerating Finite State Machine-Based Testing using Convolutional Neural Networks</h2>
+        <p>Professor Turker and his PhD student Mr Walker are developing a convolutional neural network (CNN) that is used to accelerate Finite Sate Machine-Based Testing. 
+            In this work, the CNN is used to identify how close a mutant machine is to the specification machine by giving a score (likely hood) that a mutant machine is a 
+            specification machine. </p>
+            <p>The CNN is trained on a image representation of the finite state machine (FSM) as can be seen in fig 1.1-3.
+            The dataset that the model is trained on is created by producing both specification and mutation machines from a given specification FSM. 
+            A specification machine is made by swamping two rows changing the image but is still a correct representation of the specification machine. 
+            But to create the mutation machine one pixel is chosen to be randomly changed out with a different colour. 
+            The replacement is a colour from the set of colours that are from the same category as the original mutant pixal. 
+            For example, if a state was changed it will be changed with another colour which represents a states. 
+            Or if a input in mutated it will be changed with another colour from the inputs colour set. Etc.
+        </p>
+            <figure>
+                <div class ="subFigure">
+                    <img class="figure__image" src="FSM example.PNG" alt="Example FSM M1 ShiftRegister" >
+                    <figcaption>Fig1.1 Example FSM M1 ShiftRegister</figcaption>
+                </div>
+                <div class ="subFigure">
+                    <img class="figure__image" src="FSM example states.PNG" alt="Colours for the states/input/outputs" >
+                    <figcaption>Fig1.2 Colour encodings for FSM M1</figcaption>
+                </div>
+                <div class ="subFigure">
+                    <img class="figure__image" src="FSM example image.PNG" alt="Image representation of FSM" >
+                    <figcaption>Fig1.3 Constructed figure for FSM M1</figcaption>
+                </div>
+            </figure>
+        <p>Using the order created by the CNN scores, the killer sequences are created for each mutation machine. 
+            This sequences is then tested against the rest of the mutation machines to and checks to see how many of them are killed with this sequence. 
+            This is repeated until all mutation machines are killed, resulting in a set of sequences that will kill all mutants. 
+            By using the CNN it will accelerate this process as it provides the order to process the mutants in a way that the mutants at the begining will kill more mutants. 
+            This will help to reduce the progessing time as less mutants machines will need to be processed.  
+        </p>
+            
+    </section>
 </body>
 
 </html>
